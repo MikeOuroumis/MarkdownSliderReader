@@ -18,7 +18,7 @@ export function Header({isDarkMode, onPress}: HeaderProps) {
     <View style={styles.container}>
       <TouchableOpacity onPress={onPress}>
         <Icon
-          name={isDarkMode ? 'weather-sunny' : 'weather-night'}
+          name={isDarkMode ? 'weather-night' : 'weather-sunny'}
           style={iconStyle}
         />
       </TouchableOpacity>
