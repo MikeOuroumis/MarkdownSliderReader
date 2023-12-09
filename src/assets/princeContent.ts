@@ -1,4 +1,4 @@
-#
+export const princeContent: string = `#
 
 Prince
 
@@ -112,3 +112,4 @@ This time I'm the one who hangs up.
 After pacing around the kitchen for a while, I throw an apple and a handful of strawberries into the blender. It's a new, expensive thing, and after a brief but furious buzz it implodes with a spark. I never liked machines, nor did they like me.
 
 Wanting to cry and be held, I descend the stairs to my husband's music studio. When I come in he sits with his back to me. He wears headphones, so he doesn't hear me calling his name. I walk around the mixing desk and the piano and wave into his field of view. Because I sense that he won't like my tears, because I know he never likes them, I smile mischievously. He sits in an unmoving cross-legged position, then raises a finger to his lips. I have to be quiet. He closes his eyes.
+`;
