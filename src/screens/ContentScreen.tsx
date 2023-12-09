@@ -18,7 +18,7 @@ export function ContentScreen() {
   return (
     <SafeAreaView style={[styles.container, backgroundStyle]}>
       <Header isDarkMode={isDarkMode} onPress={toggleTheme} />
-      <PrinceContent />
+      <PrinceContent textColor={isDarkMode ? 'white' : 'black'} />
     </SafeAreaView>
   );
 }
@@ -26,8 +26,6 @@ export function ContentScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     padding: 20,
   },
   text: {

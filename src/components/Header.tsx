@@ -1,7 +1,6 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 interface HeaderProps {
   isDarkMode: boolean;
@@ -11,17 +10,12 @@ interface HeaderProps {
 export function Header({isDarkMode, onPress}: HeaderProps) {
   const iconStyle = {
     color: isDarkMode ? 'white' : 'black',
-    fontSize: 30,
+    fontSize: 25,
     marginLeft: 10,
-  };
-
-  const textColor = {
-    color: isDarkMode ? Colors.lighter : Colors.darker,
   };
 
   return (
     <View style={styles.container}>
-      <Text style={[styles.text, textColor]}>header</Text>
       <TouchableOpacity onPress={onPress}>
         <Icon
           name={isDarkMode ? 'weather-sunny' : 'weather-night'}
@@ -34,13 +28,8 @@ export function Header({isDarkMode, onPress}: HeaderProps) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    padding: 20,
     flexDirection: 'row',
-  },
-  text: {
-    fontSize: 24,
-    color: 'white',
-    marginBottom: 20,
+    justifyContent: 'flex-end',
+    margin: 20,
   },
 });

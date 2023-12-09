@@ -3,7 +3,12 @@ import Markdown from 'react-native-markdown-display';
 import {princeContent} from '../assets/princeContent';
 import {SafeAreaView, ScrollView, StatusBar, StyleSheet} from 'react-native';
 
-export default function PrinceContent() {
+export default function PrinceContent({textColor}: {textColor: string}) {
+  const markdownStyles = {
+    text: {
+      color: textColor,
+    },
+  };
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -11,7 +16,7 @@ export default function PrinceContent() {
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.container}>
-          <Markdown>{princeContent}</Markdown>
+          <Markdown style={markdownStyles}>{princeContent}</Markdown>
         </ScrollView>
       </SafeAreaView>
     </>
@@ -20,7 +25,6 @@ export default function PrinceContent() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     padding: 20,
   },
 });
