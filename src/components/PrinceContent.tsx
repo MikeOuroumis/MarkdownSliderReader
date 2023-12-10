@@ -1,24 +1,27 @@
 import React from 'react';
-import Markdown from 'react-native-markdown-display';
-import {princeContent} from '../assets/princeContent';
-import {StyleSheet, View} from 'react-native';
-import {paginateContent} from '../utils/pagination';
+import {StyleSheet, View, Text} from 'react-native';
 import PagerView from 'react-native-pager-view';
+import {prepareContent} from '../utils/content';
+
+const PAGE_PADDING = 20;
+const FONT_SIZE = 15;
 
 export default function PrinceContent({textColor}: {textColor: string}) {
-  const markdownStyles = {
-    text: {
-      color: textColor,
-    },
-  };
+  const {pages, title, titlePageIndex} = prepareContent(
+    PAGE_PADDING,
+    FONT_SIZE,
+  );
 
-  const pages = paginateContent(princeContent, 1000);
+  const textStyle = {color: textColor, fontSize: FONT_SIZE};
 
   return (
     <PagerView style={styles.container} initialPage={0}>
       {pages.map((page, index) => (
         <View key={index} style={styles.page}>
-          <Markdown style={markdownStyles}>{page}</Markdown>
+          {index === titlePageIndex && (
+            <Text style={[styles.title, {color: textColor}]}>{title}</Text>
+          )}
+          <Text style={textStyle}>{page}</Text>
         </View>
       ))}
     </PagerView>
@@ -30,6 +33,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   page: {
-    padding: 20,
+    padding: PAGE_PADDING,
+  },
+  title: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 10,
   },
 });
